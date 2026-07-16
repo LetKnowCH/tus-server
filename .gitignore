@@ -173,3 +173,7 @@ dist
 
 .idea
 .vscode/*
+
+# Mac-specific files
+
+.DS_Store
