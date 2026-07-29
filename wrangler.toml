@@ -1,8 +1,8 @@
 name = "lkm-cdn3-dev"
 main = "src/index.ts"
-compatibility_date = "2026-07-29"
+compatibility_date = "2023-05-10"
 compatibility_flags = ["nodejs_compat"]
-logpush = true
+workers_dev = false
 
 # Specifies the r2 buckets. r2 bucket names are scoped to your account (not global). The buckets should be publicly inaccessible.
 r2_buckets = [
@@ -17,15 +17,11 @@ durable_objects.bindings = [
 
 [[migrations]]
 tag = "v1"
-new_classes = ["UploadHandler"]
-
-[[migrations]]
-tag = "v2"
-renamed_classes = [{ from = "UploadHandler", to = "AttachmentUploadHandler" }]
-new_classes = ["BackupUploadHandler"]
+new_sqlite_classes = ["AttachmentUploadHandler", "BackupUploadHandler"]
 
 [env.production]
 name = "lkm-cdn3"
+logpush = true
 durable_objects.bindings = [
     { name = "ATTACHMENT_UPLOAD_HANDLER", class_name = "AttachmentUploadHandler" },
     { name = "BACKUP_UPLOAD_HANDLER", class_name = "BackupUploadHandler" }
