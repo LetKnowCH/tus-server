@@ -33,6 +33,8 @@ r2_buckets = [
 
 [env.staging]
 name = "lkm-stage-cdn3"
+preview_urls = false
+observability = { enabled = true }
 durable_objects.bindings = [
     { name = "ATTACHMENT_UPLOAD_HANDLER", class_name = "AttachmentUploadHandler" },
     { name = "BACKUP_UPLOAD_HANDLER", class_name = "BackupUploadHandler" }
